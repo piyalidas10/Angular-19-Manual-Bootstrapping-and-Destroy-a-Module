@@ -1,0 +1,22 @@
+@if (isShowMessage && (hasNewMessage$ | async)) {
+<div class="new-message">You've got a new message</div>
+}
+<header class="header">
+  <img
+    class="logo"
+    height="50"
+    src="https://opensource.google/static/images/projects/os-projects-angular.svg"
+    alt="logo"
+  />
+  <span class="name">Angular 19 Manual Bootstrapping & Destroy a Module</span>
+</header>
+<div class="text">
+  <p>Click on "Open Chat" button to open Chat window</p>
+</div>
+<main class="content">
+  <button mat-flat-button (click)="onClickOpenChat()">Open Chat</button>
+  <app-home-page
+    [isChatOpen]="isChatOpen()"
+    (isHomePage)="switchToHomePage($event)"
+  ></app-home-page>
+</main>

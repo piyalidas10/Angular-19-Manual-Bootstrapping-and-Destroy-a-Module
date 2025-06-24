@@ -1,0 +1,41 @@
+.header {
+  height: 64px;
+  background-color: #000823;
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  box-sizing: border-box;
+
+  .logo {
+    margin-right: 15px;
+  }
+  .name {
+    color: white;
+    font-weight: 600;
+  }
+}
+.text {
+  padding: 0 15px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.content {
+  height: calc(100vh - 64px - 50px);
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  margin: 25px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: #0000003d 0px 0px 6px 0px;
+}
+.new-message {
+  background-color: #d20000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+}
