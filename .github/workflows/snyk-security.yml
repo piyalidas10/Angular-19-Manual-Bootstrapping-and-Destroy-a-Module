@@ -1,5 +1,11 @@
 name: Build code, run unit test, run SAST, SCA, DAST security scans for NodeJs App
-on: push
+on:
+  push:
+    branches:
+      - main # This triggers the workflow on pushes to the main branch
+  pull_request:
+    branches:
+      - main # This triggers the workflow on pull requests targeting the main branch
 
 jobs:
   build:
@@ -13,7 +19,7 @@ jobs:
         cache: npm
     - run: npm install
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@main
+      uses: sonarsource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -26,9 +32,9 @@ jobs:
     needs: build
     name: Run the SCA scan on the source code
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@master
       - name: RunSnyk to check for vulnerabilities
-        uses: snyk/actions/node@main
+        uses: snyk/actions/node@master
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
